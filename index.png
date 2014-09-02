@@ -1,0 +1,13 @@
+<?php
+//$base=file_get_contents("https://metagram.firebaseio.com/grams/-JMB-T68efgsIBpOlhbR/base64.json");
+//$json=json_decode($base);
+//echo '<img src="'.$json.'">';
+
+
+$base=file_get_contents("https://metagram.firebaseio.com/grams/-JMB-T68efgsIBpOlhbR/base64.json");
+$imgstr=json_decode($base);
+$new_data=explode(";",$imgstr);
+$type=$new_data[0];
+$data=explode(",",$new_data[1]);
+header("Content-type:".$type);
+echo base64_decode($data[1]);
