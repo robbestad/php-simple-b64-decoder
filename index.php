@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 $id=$_GET["id"];
 $eventCode=$_GET["e"];
 $image=explode(".",$id);
-$base=file_get_contents("https://metagram.firebaseio.com/'.$eventCode.'/grams/".$image[0]."/base64.json");
+$base=file_get_contents("https://metagram.firebaseio.com/".$eventCode."/grams/".$image[0]."/base64.json");
 $imgstr=json_decode($base);
 $new_data=explode(";",$imgstr);
 if(count($new_data)>1){
